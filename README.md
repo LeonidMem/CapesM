@@ -1,11 +1,9 @@
 ### CapesM is a plugin for Spigot which can transform any banner to a cape.
 
 # Commands:
-**/cape set** - Set banner from your hand as a cape. *Needed permission: `capes.set`.*
-
-**/cape remove** - Remove the cape. *Needed permission: `capes.remove`.*
-
-**/cape reload** - Reload config. *Needed permission: `capes.reload`.*
+- **/cape set** - Set banner from your hand as a cape. *Needed permission: `capes.set`.*
+- **/cape remove** - Remove the cape. *Needed permission: `capes.remove`.*
+- **/cape reload** - Reload config. *Needed permission: `capes.reload`.*
 
 # CapesAPI
 You can use this plugin as a library in your project. Just import class `leonidm.capes.CapesAPI` and call such static functions as:
