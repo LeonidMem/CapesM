@@ -15,7 +15,7 @@ public class CapesAPI {
 	final static Map<String, ArmorStand> capes = new HashMap<>();
 	
 	/**
-	 * Set given ItemStack as a cape to Player
+	 * Set given ItemStack as a Player's cape 
 	 * @param player
 	 * @param banner
 	 */
@@ -33,7 +33,7 @@ public class CapesAPI {
 	}
 	
 	/**
-	 * Remove a cape from Player
+	 * Remove Player's cape
 	 * @param player
 	 * @return Returns "true" if cape was removed, "false" if not
 	 */
@@ -55,7 +55,7 @@ public class CapesAPI {
 	}
 	
 	/**
-	 * Get cape from Player
+	 * Get Player's cape
 	 * @param player
 	 * @return Returns ItemStack if Player has any cape, null if not
 	 */
