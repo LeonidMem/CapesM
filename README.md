@@ -1,4 +1,4 @@
-###  Capes is plugin for Spigot which can transform any banner to a cape.
+### CapesM is a plugin for Spigot which can transform any banner to a cape.
 
 # Commands:
 **/cape set** - Set banner from your hand as a cape. *Needed permission: `capes.set`.*
