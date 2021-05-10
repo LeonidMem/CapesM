@@ -7,8 +7,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.EulerAngle;
 
 public class CapesCommand implements CommandExecutor, TabCompleter {
 
@@ -24,6 +26,21 @@ public class CapesCommand implements CommandExecutor, TabCompleter {
 			ItemStack is = p.getInventory().getItemInMainHand();
 			if(is == null || !is.getType().toString().contains("BANNER")) { p.sendMessage(CapesMain.getInstance().configString("set.error")); break; }
 			CapesAPI.setCape(p, is);
+			
+			ArmorStand as = CapesAPI.capes.get(sender.getName());
+			if(((Player) sender).isSneaking()) {
+				as.setHeadPose(new EulerAngle(-2.5, 0 ,0));
+				as.teleport(((Player) sender).getLocation().clone().add(0, 0.8, 0));
+			}
+			else {
+				double yaw = Math.toRadians(((Player) sender).getLocation().getYaw());
+				double sin = Math.sin(yaw);
+				double cos = Math.cos(yaw);
+				
+				as.teleport(((Player) sender).getLocation().clone().add(sin / 4, 1, -cos / 4));
+				as.setHeadPose(new EulerAngle(-3, 0 ,0));
+			}
+			
 			p.sendMessage(CapesMain.getInstance().configString("set.ok"));
 			break;
 		
