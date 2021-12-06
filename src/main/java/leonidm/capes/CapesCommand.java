@@ -1,7 +1,11 @@
 package leonidm.capes;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,11 +15,12 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
+import org.jetbrains.annotations.NotNull;
 
 public class CapesCommand implements CommandExecutor, TabCompleter {
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         if(!(sender instanceof Player)) { sender.sendMessage(CapesMain.getInstance().configString("not_player")); return true; }
         if(args.length == 0) { sender.sendMessage(CapesMain.getInstance().configString("usage")); return true; }
         Player p = (Player) sender;
@@ -64,16 +69,13 @@ public class CapesCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, Command cmd, @NotNull String label, String[] args) {
         if(cmd.getName().equalsIgnoreCase("cape")) {
-            switch(args.length) {
-                case 1:
-                    return Arrays.asList("set", "remove", "reload");
-                default:
-                    return null;
+            if (args.length == 1) {
+                return Stream.of("set", "remove", "reload").filter(s -> s.startsWith(args[0].toLowerCase(Locale.ENGLISH))).collect(Collectors.toList());
             }
         }
-        return null;
+        return Collections.emptyList();
     }
 
 }

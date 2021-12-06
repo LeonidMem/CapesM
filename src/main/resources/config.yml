@@ -1,6 +1,6 @@
 not_player: '&cOnly players can use this command!'
 config_reloaded: '&aConfig was reloaded!'
-usage: '&cUsage: &f/cape [set/remove]&c!'
+usage: '&cUsage: &f/cape [set/remove/reload]&c!'
 dont_have_permission: '&cYou don''t have permission to use this command!'
 
 set:
