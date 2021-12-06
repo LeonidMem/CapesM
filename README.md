@@ -6,7 +6,7 @@
 - **/cape reload** - Reload config. *Needed permission: `capes.reload`.*
 
 # CapesAPI
-You can use this plugin as a library in your project. Just import class `leonidm.capes.CapesAPI` and call such static functions as:
+You can use this plugin as a library in your project. Just import class `CapesAPI` and call such static functions as:
 - **CapesAPI.setCape(Player player, ItemStack banner)** - set given ItemStack as a Player's cape.
 - **CapesAPI.removeCape(Player player)** - Remove Player's cape *(returns `true` if cape was removed, `false` if not)*.
 - **CapesAPI.hasCape(Player player)** - Check if Player has any cape *(returns `true` if Player has any cape, `false` if not)*.
