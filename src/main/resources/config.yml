@@ -1,0 +1,12 @@
+not_player: '&cOnly players can use this command!'
+config_reloaded: '&aConfig was reloaded!'
+usage: '&cUsage: &f/cape [set/remove/reload]&c!'
+dont_have_permission: '&cYou don''t have permission to use this command!'
+
+set:
+  error: '&cFirstly, take any banner in your hand!'
+  ok: '&aSet!'
+
+remove:
+  error: '&cYou don''t have any cape!'
+  ok: '&aRemoved!'
