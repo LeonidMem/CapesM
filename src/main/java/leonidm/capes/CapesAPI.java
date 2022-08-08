@@ -3,7 +3,6 @@ package leonidm.capes;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.github.bananapuncher714.nbteditor.NBTEditor;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -22,13 +21,14 @@ public class CapesAPI {
     public static void setCape(Player player, ItemStack banner) {
         removeCape(player);
         ArmorStand as = player.getWorld().spawn(player.getLocation(), ArmorStand.class);
-        as.getEquipment().setHelmet(banner);
+        if(as.getEquipment() != null)
+            as.getEquipment().setHelmet(banner);
         as.setVisible(false);
         as.setMarker(true);
         as.setHeadPose(new EulerAngle(-3, 0 ,0));
         as.setSmall(true);
         as.addScoreboardTag("leonidm.capes");
-        NBTEditor.set(as, true, "NoGravity");
+        as.setGravity(false);
         capes.put(player.getName(), as);
     }
 
